@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio Profesional</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(15,23,42,.95);
+    backdrop-filter: blur(10px);
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+    url('https://picsum.photos/1920/1080');
+    background-size:cover;
+}
+
+.hero h1{
+    font-size:3rem;
+    animation:fadeIn 1.5s;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.hero button{
+    margin-top:25px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:#38bdf8;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.05);
+}
+
+/* SECTIONS */
+section{
+    padding:100px 8%;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+}
+
+/* PROJECTS */
+.projects h2{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    border-radius:12px;
+}
+
+/* CONTACT */
+form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+}
+
+input, textarea{
+    margin-top:12px;
+    padding:15px;
+    border-radius:10px;
+    border:none;
+}
+
+form button{
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    background:#38bdf8;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    nav ul{
+        display:none;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<h2>Esteban Dev</h2>
+<ul>
+<li><a href="#about">Sobre mí</a></li>
+<li><a href="#projects">Proyectos</a></li>
+<li><a href="#contact">Contacto</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<h1>Desarrollador Web Profesional</h1>
+<p>Creando experiencias digitales modernas</p>
+<button onclick="scrollToAbout()">Ver más</button>
+</section>
+
+<section id="about" class="about">
+<div>
+<h2>Sobre mí</h2>
+<p>
+Desarrollador apasionado por crear interfaces modernas, accesibles y escalables.
+Especializado en desarrollo web frontend con buenas prácticas de diseño y código.
+</p>
+</div>
+
+<img src="https://picsum.photos/500/500" alt="Foto de perfil">
+</section>
+
+<section id="projects" class="projects">
+<h2>Proyectos</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://picsum.photos/400/300?1" alt="Proyecto 1">
+<h3>App Web</h3>
+<p>Proyecto de aplicación moderna.</p>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?2" alt="Proyecto 2">
+<h3>Dashboard</h3>
+<p>Panel de administración.</p>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?3" alt="Proyecto 3">
+<h3>Landing Page</h3>
+<p>Página de marketing profesional.</p>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2 style="text-align:center">Contacto</h2>
+
+<form>
+<input type="text" placeholder="Nombre" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Mensaje" rows="5"></textarea>
+<button>Enviar Mensaje</button>
+</form>
+
+</section>
+
+<footer>
+<p>© 2026 Portafolio Profesional</p>
+</footer>
+
+<script>
+
+function scrollToAbout(){
+    document.getElementById("about")
+    .scrollIntoView({behavior:"smooth"});
+}
+
+document.querySelector("form").addEventListener("submit",(e)=>{
+    e.preventDefault();
+    alert("Mensaje enviado ✔");
+});
+
+</script>
+
+</body>
+</html>
