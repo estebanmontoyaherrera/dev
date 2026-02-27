@@ -1,283 +1,450 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio Profesional</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins', sans-serif;
-    background:#0f172a;
-    color:white;
-}
-
-/* NAVBAR */
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(15,23,42,.95);
-    backdrop-filter: blur(10px);
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    z-index:1000;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    margin-left:25px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-    url('https://picsum.photos/1920/1080');
-    background-size:cover;
-}
-
-.hero h1{
-    font-size:3rem;
-    animation:fadeIn 1.5s;
-}
-
-.hero p{
-    margin-top:15px;
-    font-size:1.2rem;
-}
-
-.hero button{
-    margin-top:25px;
-    padding:15px 30px;
-    border:none;
-    border-radius:30px;
-    background:#38bdf8;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.hero button:hover{
-    transform:scale(1.05);
-}
-
-/* SECTIONS */
-section{
-    padding:100px 8%;
-}
-
-/* ABOUT */
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-}
-
-.about img{
-    width:100%;
-    border-radius:20px;
-}
-
-/* PROJECTS */
-.projects h2{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card img{
-    width:100%;
-    border-radius:12px;
-}
-
-/* CONTACT */
-form{
-    max-width:600px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-}
-
-input, textarea{
-    margin-top:12px;
-    padding:15px;
-    border-radius:10px;
-    border:none;
-}
-
-form button{
-    margin-top:20px;
-    padding:15px;
-    border:none;
-    border-radius:30px;
-    background:#38bdf8;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    background:#020617;
-}
-
-/* ANIMACIONES */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .about{
-        grid-template-columns:1fr;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Senior | Software Architect Mindset</title>
+  <meta name="description" content="Portfolio premium de desarrollador senior enfocado en arquitectura limpia, DDD y sistemas backend escalables." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2R5P3zQ+6I5QfVIbY5v1yM0M4G6iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #080a12;
+      --surface: #10141f;
+      --surface-soft: #151b29;
+      --text: #e6e9f2;
+      --muted: #9aa5be;
+      --accent: #66c1ff;
+      --accent-2: #8c7bff;
+      --line: #242c3f;
+      --ok: #4bd7b3;
+      --max-width: 1160px;
+      --radius: 20px;
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
     }
 
-    nav ul{
-        display:none;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(102, 193, 255, 0.08), transparent 40%),
+        radial-gradient(circle at 85% 0%, rgba(140, 123, 255, 0.08), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
-}
 
-</style>
+    .container { width: min(var(--max-width), 92vw); margin: 0 auto; }
 
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(8, 10, 18, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.88rem; }
+
+    .brand span { color: var(--accent); }
+
+    .nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible { color: var(--text); }
+
+    .hero {
+      padding: 8.5rem 0 5rem;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(102, 193, 255, 0.3);
+      background: rgba(102, 193, 255, 0.08);
+      color: #c9ebff;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.3rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.8vw, 4.15rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 16ch;
+    }
+
+    .hero p {
+      margin-top: 1.3rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.15rem);
+      max-width: 62ch;
+    }
+
+    .hero-cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 0.75rem 1.05rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn.primary {
+      color: #061018;
+      background: linear-gradient(130deg, var(--accent), #8fe4ff);
+      box-shadow: 0 10px 30px rgba(102, 193, 255, 0.25);
+    }
+
+    .btn.secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .architect-card {
+      background: linear-gradient(160deg, rgba(140, 123, 255, 0.1), rgba(102, 193, 255, 0.07) 45%, rgba(16, 20, 31, 0.8) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .architect-card h3 { font-size: 1rem; margin-bottom: 0.65rem; }
+
+    .architect-card p { color: var(--muted); font-size: 0.95rem; }
+
+    .signal {
+      margin-top: 1rem;
+      background: rgba(11, 15, 24, 0.75);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #b7c9e8;
+      overflow: auto;
+    }
+
+    .metrics {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.85rem;
+    }
+
+    .metric strong { font-size: 1.22rem; display: block; }
+
+    .metric span { font-size: 0.82rem; color: var(--muted); }
+
+    section { padding: 3.8rem 0; }
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle { color: var(--muted); max-width: 68ch; }
+
+    .grid-3 {
+      margin-top: 1.7rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .panel i { color: var(--accent); margin-bottom: 0.8rem; font-size: 1.15rem; }
+
+    .panel h3 { margin-bottom: 0.45rem; font-size: 1.05rem; }
+
+    .panel p { color: var(--muted); font-size: 0.95rem; }
+
+    .thinking {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .thinking .panel { min-height: 100%; }
+
+    .pill-list {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      list-style: none;
+    }
+
+    .pill-list li {
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.82rem;
+      color: #d8e2f3;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+    }
+
+    .stack {
+      margin-top: 1.7rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .stack-item {
+      padding: 0.8rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+      color: #dbe4f5;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .contact {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact a { color: var(--text); text-decoration: none; }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 3rem;
+      padding: 1.2rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .reveal { opacity: 0; transform: translateY(12px); transition: 0.45s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; padding-top: 6.5rem; }
+      .grid-3, .thinking { grid-template-columns: 1fr; }
+      .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .metrics { grid-template-columns: 1fr; }
+      .stack { grid-template-columns: 1fr; }
+      .nav { gap: 0.65rem; }
+      .nav a { font-size: 0.86rem; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand mono">Senior<span>Dev</span>.build</div>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#que-hago">Qué hago</a>
+        <a href="#como-pienso">Cómo pienso</a>
+        <a href="#como-construyo">Cómo construyo</a>
+        <a href="#stack">Stack</a>
+      </nav>
+    </div>
+  </header>
 
-<nav>
-<h2>Esteban Dev</h2>
-<ul>
-<li><a href="#about">Sobre mí</a></li>
-<li><a href="#projects">Proyectos</a></li>
-<li><a href="#contact">Contacto</a></li>
-</ul>
-</nav>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow mono">Backend Engineering • Software Architecture</span>
+        <h1>Diseño software robusto, escalable y alineado con negocio.</h1>
+        <p>
+          Trabajo en la intersección entre estrategia técnica y ejecución: convierto complejidad en plataformas claras,
+          mantenibles y listas para crecer. Mi enfoque integra <strong>Clean Architecture</strong>, <strong>DDD</strong> y
+          decisiones de ingeniería guiadas por impacto real.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#que-hago"><i class="fa-solid fa-layer-group"></i> Explorar enfoque</a>
+          <a class="btn secondary" href="#contacto"><i class="fa-solid fa-envelope"></i> Conversar</a>
+        </div>
+        <div class="metrics reveal">
+          <article class="metric"><strong>Arquitectura</strong><span>modular + orientada a dominio</span></article>
+          <article class="metric"><strong>Escalabilidad</strong><span>event-driven + cloud-native</span></article>
+          <article class="metric"><strong>Calidad</strong><span>observabilidad, testing y evolución</span></article>
+        </div>
+      </div>
 
-<section class="hero">
-<h1>Desarrollador Web Profesional</h1>
-<p>Creando experiencias digitales modernas</p>
-<button onclick="scrollToAbout()">Ver más</button>
-</section>
+      <aside class="architect-card reveal" aria-label="Tarjeta de perfil técnico">
+        <h3>Software Architect Mindset</h3>
+        <p>
+          No desarrollo features aisladas. Diseño sistemas que soportan crecimiento, minimizan deuda técnica y mejoran
+          el flujo de entrega del equipo.
+        </p>
+        <div class="signal">
+[principios]
+- dominio antes que framework
+- contratos explícitos
+- desacoplar para evolucionar
+- decisiones trazables
+        </div>
+      </aside>
+    </section>
 
-<section id="about" class="about">
-<div>
-<h2>Sobre mí</h2>
-<p>
-Desarrollador apasionado por crear interfaces modernas, accesibles y escalables.
-Especializado en desarrollo web frontend con buenas prácticas de diseño y código.
-</p>
-</div>
+    <section id="que-hago">
+      <h2 class="section-title">Qué hago</h2>
+      <p class="section-subtitle">
+        Construyo soluciones backend de misión crítica donde la arquitectura no es decoración: es ventaja competitiva.
+      </p>
+      <div class="grid-3 reveal">
+        <article class="panel">
+          <i class="fa-solid fa-sitemap"></i>
+          <h3>Arquitecturas evolutivas</h3>
+          <p>Diseño estructuras modulares que permiten incorporar nuevas capacidades sin romper lo existente.</p>
+        </article>
+        <article class="panel">
+          <i class="fa-solid fa-database"></i>
+          <h3>Diseño de datos y consistencia</h3>
+          <p>Modelo agregados y flujos de persistencia pensando en invariantes de negocio y rendimiento real.</p>
+        </article>
+        <article class="panel">
+          <i class="fa-solid fa-server"></i>
+          <h3>Plataformas backend escalables</h3>
+          <p>Construyo APIs, procesos asíncronos y pipelines resilientes para cargas crecientes y escenarios complejos.</p>
+        </article>
+      </div>
+    </section>
 
-<img src="https://picsum.photos/500/500" alt="Foto de perfil">
-</section>
+    <section id="como-pienso">
+      <h2 class="section-title">Cómo pienso</h2>
+      <p class="section-subtitle">
+        Mi criterio técnico parte del dominio, no de la moda. Cada decisión se evalúa por su costo de cambio futuro.
+      </p>
+      <div class="thinking reveal">
+        <article class="panel">
+          <h3>Principios de diseño</h3>
+          <ul class="pill-list">
+            <li>Bounded Contexts claros</li>
+            <li>Casos de uso explícitos</li>
+            <li>Bajo acoplamiento</li>
+            <li>Alta cohesión</li>
+            <li>Contratos estables</li>
+            <li>Observabilidad desde el inicio</li>
+          </ul>
+        </article>
+        <article class="panel" id="como-construyo">
+          <h3>Cómo construyo software</h3>
+          <p>
+            Itero con ciclos cortos de validación, instrumentación y ajuste. Combino calidad técnica con foco en impacto
+            de negocio para entregar soluciones sólidas, no solo código que funciona hoy.
+          </p>
+          <ul class="pill-list">
+            <li>Arquitectura limpia</li>
+            <li>DDD táctico y estratégico</li>
+            <li>Testing multinivel</li>
+            <li>CI/CD disciplinado</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-<section id="projects" class="projects">
-<h2>Proyectos</h2>
+    <section id="stack">
+      <h2 class="section-title">Tecnologías que domino</h2>
+      <p class="section-subtitle">
+        Selecciono tecnología por contexto, pero con excelencia en ecosistemas backend, integración distribuida y operaciones fiables.
+      </p>
+      <div class="stack reveal" aria-label="Tecnologías principales">
+        <div class="stack-item">Node.js / TypeScript</div>
+        <div class="stack-item">Java / Spring Boot</div>
+        <div class="stack-item">Python / FastAPI</div>
+        <div class="stack-item">Go para servicios críticos</div>
+        <div class="stack-item">PostgreSQL / Redis</div>
+        <div class="stack-item">Kafka / RabbitMQ</div>
+        <div class="stack-item">Docker / Kubernetes</div>
+        <div class="stack-item">AWS / Observability Stack</div>
+      </div>
 
-<div class="grid">
+      <div id="contacto" class="contact reveal">
+        <a class="btn secondary" href="mailto:senior.dev@portfolio.io"><i class="fa-solid fa-paper-plane"></i> senior.dev@portfolio.io</a>
+        <a class="btn secondary" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="btn secondary" href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </section>
+  </main>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?1" alt="Proyecto 1">
-<h3>App Web</h3>
-<p>Proyecto de aplicación moderna.</p>
-</div>
+  <footer>
+    <div class="container mono">Built with precision mindset · Clean Architecture + DDD · 2026</div>
+  </footer>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?2" alt="Proyecto 2">
-<h3>Dashboard</h3>
-<p>Panel de administración.</p>
-</div>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
 
-<div class="card">
-<img src="https://picsum.photos/400/300?3" alt="Proyecto 3">
-<h3>Landing Page</h3>
-<p>Página de marketing profesional.</p>
-</div>
-
-</div>
-</section>
-
-<section id="contact">
-<h2 style="text-align:center">Contacto</h2>
-
-<form>
-<input type="text" placeholder="Nombre" required>
-<input type="email" placeholder="Email" required>
-<textarea placeholder="Mensaje" rows="5"></textarea>
-<button>Enviar Mensaje</button>
-</form>
-
-</section>
-
-<footer>
-<p>© 2026 Portafolio Profesional</p>
-</footer>
-
-<script>
-
-function scrollToAbout(){
-    document.getElementById("about")
-    .scrollIntoView({behavior:"smooth"});
-}
-
-document.querySelector("form").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    alert("Mensaje enviado ✔");
-});
-
-</script>
-
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
