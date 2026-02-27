@@ -9,21 +9,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2R5P3zQ+6I5QfVIbY5v1yM0M4G6iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
-    :root {
-      --bg: #0f172a;
-      --bg-alt: #0b1220;
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --accent: #22d3ee;
-      --accent-gradient: linear-gradient(90deg, #22d3ee, #3b82f6);
-      --line: rgba(148, 163, 184, 0.2);
-      --radius: 16px;
-      --glow: 0 12px 30px rgba(34, 211, 238, 0.15);
-      --max-width: 1120px;
-    }
+  :root {
+  --bg: #1e293b;        /* azul oscuro más suave */
+  --bg-soft: #273449;   /* azul intermedio */
+  --bg-alt: #15202b;    /* azul profundo pero menos negro */
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  
+  --accent: #22d3ee;
+  --accent-gradient: linear-gradient(90deg, #22d3ee, #3b82f6);
+  
+  --line: rgba(203, 213, 225, 0.2);
+  --radius: 16px;
+  --glow: 0 12px 30px rgba(34, 211, 238, 0.15);
+  --max-width: 1120px;
+}
+/* ===== SECUENCIA DEFINITIVA CORRECTA ===== */
+
+#stack { background: var(--bg-soft); }
+#filosofia { background: var(--bg-alt); }
+#about { background: var(--bg); }
+#contact { background: var(--bg-soft); }
+footer { background: var(--bg-alt); }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -77,14 +87,18 @@
       justify-content: space-between;
       gap: 1rem;
     }
-    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
     .nav-avatar {
       width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-      border: 2px solid rgba(34, 211, 238, 0.35);
+      border: 0px solid rgba(34, 211, 238, 0.35);
       transition: transform .3s ease;
     }
     .nav-avatar:hover { transform: scale(1.05); }
-    .nav-name { font-weight: 700; letter-spacing: .03em; text-transform: uppercase; font-size: .9rem; }
+    .nav-name { font-weight: 700; letter-spacing: .03em; text-transform: uppercase; font-size: .9rem;white-space: nowrap;   /* evita salto de línea */ }
     .nav-name span { color: var(--accent); }
 
     .nav-links { display: flex; gap: 1.1rem; list-style: none; }
@@ -113,16 +127,16 @@
     .nav-links a:hover::after,
     .nav-links a.active::after { transform: scaleX(1); }
 
-    .mobile-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: rgba(11, 18, 32, 0.75);
-      position: relative;
-      cursor: pointer;
-    }
+  .mobile-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: none;              /* sin borde */
+  background: transparent;   /* fondo transparente */
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
     .mobile-toggle span,
     .mobile-toggle::before,
     .mobile-toggle::after {
@@ -182,7 +196,7 @@
       color: var(--text-secondary);
       max-width: 58ch;
     }
-    .hero-actions { margin-top: 2rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+    .hero-actions { margin-top: 2rem; display: flex; gap: .8rem; flex-wrap: nowrap; }
     .btn {
       border-radius: 999px;
       padding: .78rem 1.3rem;
@@ -202,44 +216,126 @@
     .section-title { font-size: clamp(2rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: .7rem; }
     .section-subtitle { color: var(--text-secondary); max-width: 70ch; margin-bottom: 2rem; }
 
-    /* Especialización */
-    .spec-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-    .card {
-      background: var(--bg-alt);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      transition: .3s ease;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: var(--glow); border-color: rgba(34, 211, 238, .4); }
-    .card i { color: var(--accent); font-size: 1.2rem; margin-bottom: .65rem; }
-    .card h3 { margin-bottom: .35rem; }
-    .card p { color: var(--text-secondary); }
+  /* ===== Sección blanca de especialización ===== */
 
-    /* Stack */
-    .stack-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .85rem; }
-    .stack-col {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem;
-      background: rgba(11, 18, 32, .7);
-    }
-    .stack-col h3 { font-size: .9rem; margin-bottom: .7rem; letter-spacing: .05em; color: #c8d5ea; }
-    .badges { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; }
-    .badges li {
-      border: 1px solid rgba(148, 163, 184, .24);
-      border-radius: 999px;
-      padding: .32rem .65rem;
-      background: rgba(15, 23, 42, .85);
-      color: #d6e3f8;
-      font-size: .8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: .33rem;
-      transition: .2s ease;
-    }
-    .badges li i { color: var(--accent); font-size: .72rem; }
-    .badges li:hover { transform: scale(1.05); border-color: rgba(34, 211, 238, .6); }
+.white-section {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.spec-logos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 60px;
+}
+
+.spec-logos img {
+  height: 95px;          /* más grandes */
+  object-fit: contain;
+  filter: none;          /* quita blanco y negro */
+  opacity: 1;            /* sin transparencia */
+  transition: transform .25s ease;
+}
+
+.spec-logos img:hover {
+  transform: scale(1.05);  /* solo un zoom suave */
+}
+
+  /* ===== Stack 10/10 ===== */
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+/* Backend ocupa más espacio */
+.stack-core {
+  grid-column: span 2;
+  background: linear-gradient(145deg, rgba(34,211,238,0.08), rgba(59,130,246,0.05));
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.stack-col {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  background: rgba(10, 15, 28, 0.65);
+  backdrop-filter: blur(6px);
+  transition: all .3s ease;
+}
+
+.stack-col:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(34, 211, 238, 0.15);
+  border-color: rgba(34, 211, 238, 0.5);
+}
+
+.stack-col h3 {
+  font-size: .8rem;
+  letter-spacing: .12em;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.badges {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.badges li {
+  border: 1px solid rgba(148, 163, 184, .25);
+  border-radius: 999px;
+  padding: .45rem .8rem;
+  background: rgba(15, 23, 42, .9);
+  color: #e2e8f0;
+  font-size: .82rem;
+  transition: .25s ease;
+}
+
+.badges li:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stack-core {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-core {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .spec-logos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px; /* fila / columna */
+    justify-items: center;
+  }
+
+  .spec-logos img {
+    height: 80px;
+  }
+
+}
 
     /* Filosofía */
     .philosophy { text-align: center; }
@@ -264,8 +360,8 @@
     .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .about-image { display: flex; justify-content: center; }
     .about-image img {
-      width: 100%; max-width: 320px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover;
-      border: 3px solid rgba(34, 211, 238, 0.4);
+      width: 50%; max-width: 320px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover;
+      border: 0px solid rgba(34, 211, 238, 0.4);
       box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
       transition: transform .4s ease;
     }
@@ -307,12 +403,23 @@
       section { padding: 84px 0; }
       .hero h1 { font-size: 36px; }
       .hero p { font-size: 18px; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .hero-actions { flex-direction: row; align-items: flex-start; }
       .nav-avatar { width: 38px; height: 38px; }
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
       .stack-grid, .spec-grid { grid-template-columns: 1fr; }
     }
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: auto;        /* quitamos el 100vh */
+    padding-top: 120px;      /* espacio por navbar */
+    padding-bottom: 60px;    /* menos aire abajo */
+    align-items: flex-start; /* ya no centrado vertical */
+  }
+
+}
+
     @media (max-width: 480px) {
       section { padding: 72px 0; }
       .navbar-inner { min-height: 68px; }
@@ -324,8 +431,8 @@
   <header class="navbar" id="navbar">
     <div class="container navbar-inner">
       <div class="nav-left">
-        <img class="nav-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='28' fill='%230f172a'/%3E%3Ccircle cx='90' cy='68' r='30' fill='url(%23g)'/%3E%3Cpath d='M42 152c7-24 25-38 48-38s41 14 48 38' fill='url(%23g)'/%3E%3C/svg%3E" alt="Esteban Montoya" />
-        <span class="nav-name">Esteban <span>Montoya</span></span>
+        <img class="nav-avatar" src="img/img.jpg" alt="Esteban Montoya" />
+        <span class="nav-name">Esteban <span>Montoya</span> Herrera</span>
       </div>
 
       <nav aria-label="Navegación principal">
@@ -345,7 +452,7 @@
 
   <aside class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
     <div class="mobile-menu-inner">
-      <img class="nav-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='28' fill='%230f172a'/%3E%3Ccircle cx='90' cy='68' r='30' fill='url(%23g)'/%3E%3Cpath d='M42 152c7-24 25-38 48-38s41 14 48 38' fill='url(%23g)'/%3E%3C/svg%3E" alt="Esteban Montoya" />
+     
       <a href="#inicio">Inicio</a>
       <a href="#especializacion">Especialización</a>
       <a href="#stack">Stack</a>
@@ -367,35 +474,90 @@
       </div>
     </section>
 
-    <section id="especializacion" class="alt">
-      <div class="container">
-        <h2 class="section-title reveal">Mi Especialización</h2>
-        <p class="section-subtitle reveal">Arquitectura y ejecución con enfoque de producto, mantenibilidad y escalabilidad en escenarios reales.</p>
-        <div class="spec-grid">
-          <article class="card reveal"><i class="fa-solid fa-diagram-project"></i><h3>Arquitectura Backend</h3><p>Capas limpias, dominio explícito y contratos sólidos.</p></article>
-          <article class="card reveal"><i class="fa-solid fa-code"></i><h3>Desarrollo Full-Stack</h3><p>Integración coherente entre backend .NET y frontend Angular.</p></article>
-          <article class="card reveal"><i class="fa-solid fa-brain"></i><h3>Integración de IA</h3><p>Automatización y capacidades inteligentes dentro de aplicaciones.</p></article>
-          <article class="card reveal"><i class="fa-solid fa-server"></i><h3>Aplicaciones escalables</h3><p>Sistemas listos para crecer con estabilidad y rendimiento.</p></article>
-          <article class="card reveal"><i class="fa-solid fa-gauge-high"></i><h3>Optimización de sistemas</h3><p>Refactor y mejora continua para reducir fricción técnica.</p></article>
-        </div>
-      </div>
-    </section>
+<section id="especializacion" class="white-section">
+  <div class="container">
+    <div class="spec-logos reveal">
+      <img src="img/azure.png" alt="Azure">      
+      <img src="img/dotnet.png" alt=".NET">
+      <img src="img/csharp.png" alt="C#">
+      <img src="img/angular.png" alt="Angular">
+      <img src="img/sql-server.png" alt="SQL Server">
+      <img src="img/postgresql.png" alt="PostgreSQL">
+    </div>
+  </div>
+</section>
 
-    <section id="stack">
-      <div class="container">
-        <h2 class="section-title reveal">Stack Tecnológico</h2>
-        <p class="section-subtitle reveal">Organizado por categorías para una lectura clara, visual y estratégica.</p>
-        <div class="stack-grid">
-          <article class="stack-col reveal"><h3>BACKEND</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>.NET</li><li><i class="fa-solid fa-check"></i>C#</li><li><i class="fa-solid fa-check"></i>ASP.NET Core</li><li><i class="fa-solid fa-check"></i>Clean Architecture</li><li><i class="fa-solid fa-check"></i>Domain-Driven Design</li><li><i class="fa-solid fa-check"></i>REST APIs</li></ul></article>
-          <article class="stack-col reveal"><h3>FRONTEND</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>Angular</li><li><i class="fa-solid fa-check"></i>TypeScript</li><li><i class="fa-solid fa-check"></i>HTML5</li><li><i class="fa-solid fa-check"></i>CSS3</li></ul></article>
-          <article class="stack-col reveal"><h3>DATABASE</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>SQL Server</li></ul></article>
-          <article class="stack-col reveal"><h3>DEVOPS</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>Docker</li><li><i class="fa-solid fa-check"></i>Git</li><li><i class="fa-solid fa-check"></i>Principios SOLID</li><li><i class="fa-solid fa-check"></i>Arquitectura modular</li></ul></article>
-          <article class="stack-col reveal"><h3>IA</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>Integración de Inteligencia Artificial en aplicaciones</li></ul></article>
-        </div>
-      </div>
-    </section>
+   <section id="stack">
+  <div class="container">
+    <h2 class="section-title reveal">Arquitectura & Stack</h2>
+    <p class="section-subtitle reveal">
+      Diseño sistemas pensados para evolucionar, no solo para funcionar.
+    </p>
 
-    <section id="filosofia" class="alt philosophy">
+    <div class="stack-grid">
+
+      <!-- BACKEND (Core fuerte) -->
+      <article class="stack-col stack-core reveal">
+        <h3>CORE BACKEND</h3>
+        <ul class="badges">
+          <li>.NET / ASP.NET Core</li>
+          <li>C#</li>
+          <li>Clean Architecture</li>
+          <li>Domain-Driven Design</li>
+          <li>RESTful APIs</li>
+          <li>Modular Monolith</li>
+          <li>Scalable Systems Design</li>
+        </ul>
+      </article>
+
+      <!-- FRONTEND -->
+      <article class="stack-col reveal">
+        <h3>FRONTEND</h3>
+        <ul class="badges">
+          <li>Angular</li>
+          <li>TypeScript</li>
+          <li>Component Architecture</li>
+          <li>Reactive Patterns</li>
+        </ul>
+      </article>
+
+      <!-- DATA -->
+      <article class="stack-col reveal">
+        <h3>DATA</h3>
+        <ul class="badges">
+          <li>SQL Server</li>
+          <li>PostgreSQL</li>
+          <li>Query Optimization</li>
+          <li>Data Modeling</li>
+        </ul>
+      </article>
+
+      <!-- DEVOPS -->
+      <article class="stack-col reveal">
+        <h3>DELIVERY</h3>
+        <ul class="badges">
+          <li>Docker</li>
+          <li>Git</li>
+          <li>CI/CD Concepts</li>
+          <li>SOLID Principles</li>
+        </ul>
+      </article>
+
+      <!-- AI -->
+      <article class="stack-col reveal">
+        <h3>INTELLIGENT FEATURES</h3>
+        <ul class="badges">
+          <li>AI Integration</li>
+          <li>LLM-powered Workflows</li>
+          <li>Automation Pipelines</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    <section id="filosofia" class=" philosophy">
       <div class="container reveal">
         <h2 class="section-title">Filosofía</h2>
         <p class="quote">“No escribo código solo para que funcione.<br />Diseño soluciones que evolucionan y perduran.”</p>
@@ -407,7 +569,7 @@
     <section id="about">
       <div class="container about-container">
         <div class="about-image reveal">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='420' height='420' rx='48' fill='%230f172a'/%3E%3Ccircle cx='210' cy='158' r='74' fill='url(%23g)'/%3E%3Cpath d='M96 348c16-60 58-94 114-94s98 34 114 94' fill='url(%23g)'/%3E%3C/svg%3E" alt="Foto Esteban Montoya" />
+          <img src="img/img.jpg" alt="Foto Esteban Montoya" />
         </div>
         <article class="about-content reveal">
           <h2 class="section-title">About</h2>
@@ -418,14 +580,14 @@
       </div>
     </section>
 
-    <section id="contact" class="alt contact">
+    <section id="contact" class=" contact">
       <div class="container reveal">
         <h2 class="section-title">Contacto</h2>
         <p class="section-subtitle" style="margin-inline:auto;">Disponible para proyectos donde la ingeniería de software sea una ventaja competitiva.</p>
         <div class="socials">
-          <a class="social" href="https://www.linkedin.com/in/esteban-montoya-herrera" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a class="social" href="https://github.com/estebanmontoya" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a class="social" href="mailto:esteban.montoya.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a class="social" href="https://www.linkedin.com/in/estebanmontoyaherrera/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social" href="https://github.com/estebanmontoyaherrera" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="social" href="mailto:estebanmontoyaherrera7@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
     </section>
