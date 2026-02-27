@@ -1,283 +1,762 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio Profesional</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esteban Montoya Herrera | Software Engineer Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio premium de Esteban Montoya Herrera, Software Engineer especializado en backend .NET, arquitectura limpia, Angular e integración de IA."
+  />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Font permitida -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-<style>
+  <!-- Librería de iconos permitida -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2R5P3zQ+6I5QfVIbY5v1yM0M4G6iw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins', sans-serif;
-    background:#0f172a;
-    color:white;
-}
-
-/* NAVBAR */
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(15,23,42,.95);
-    backdrop-filter: blur(10px);
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    z-index:1000;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    margin-left:25px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-    url('https://picsum.photos/1920/1080');
-    background-size:cover;
-}
-
-.hero h1{
-    font-size:3rem;
-    animation:fadeIn 1.5s;
-}
-
-.hero p{
-    margin-top:15px;
-    font-size:1.2rem;
-}
-
-.hero button{
-    margin-top:25px;
-    padding:15px 30px;
-    border:none;
-    border-radius:30px;
-    background:#38bdf8;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.hero button:hover{
-    transform:scale(1.05);
-}
-
-/* SECTIONS */
-section{
-    padding:100px 8%;
-}
-
-/* ABOUT */
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-}
-
-.about img{
-    width:100%;
-    border-radius:20px;
-}
-
-/* PROJECTS */
-.projects h2{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card img{
-    width:100%;
-    border-radius:12px;
-}
-
-/* CONTACT */
-form{
-    max-width:600px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-}
-
-input, textarea{
-    margin-top:12px;
-    padding:15px;
-    border-radius:10px;
-    border:none;
-}
-
-form button{
-    margin-top:20px;
-    padding:15px;
-    border:none;
-    border-radius:30px;
-    background:#38bdf8;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    background:#020617;
-}
-
-/* ANIMACIONES */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .about{
-        grid-template-columns:1fr;
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #101b33;
+      --surface: rgba(19, 29, 51, 0.65);
+      --surface-strong: #121d35;
+      --text: #e8eefc;
+      --muted: #9eb0d4;
+      --line: rgba(145, 174, 235, 0.2);
+      --accent: #22d3ee;
+      --accent-strong: #38bdf8;
+      --radius: 18px;
+      --shadow-soft: 0 14px 35px rgba(8, 14, 30, 0.45);
+      --shadow-strong: 0 30px 70px rgba(0, 0, 0, 0.45);
+      --max-width: 1140px;
     }
 
-    nav ul{
-        display:none;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-}
 
-</style>
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(800px circle at 14% -8%, rgba(34, 211, 238, 0.16), transparent 42%),
+        radial-gradient(600px circle at 82% 0%, rgba(56, 189, 248, 0.12), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(92vw, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* ========================
+       NAVBAR / GLASSMORPHISM
+    =========================*/
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.62);
+      border-bottom: 1px solid rgba(190, 220, 255, 0.12);
+    }
+
+    .navbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #dff8ff;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    /* ==============
+       HERO SECTION
+    ===============*/
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding-top: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(34, 211, 238, 0.45);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.76rem;
+      color: #b6f3ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+      background: rgba(34, 211, 238, 0.08);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.6vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+
+    .hero-subtitle {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.45vw, 1.16rem);
+      max-width: 62ch;
+    }
+
+    .hero-ctas {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.78rem 1.08rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #04222a;
+      background: linear-gradient(130deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 14px 35px rgba(34, 211, 238, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(19, 29, 51, 0.7);
+      border: 1px solid var(--line);
+    }
+
+    .hero-panel {
+      background: linear-gradient(155deg, rgba(34, 211, 238, 0.07), rgba(19, 29, 51, 0.7) 38%, rgba(18, 29, 53, 0.9) 100%);
+      border: 1px solid rgba(140, 185, 255, 0.18);
+      border-radius: 24px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow-strong);
+    }
+
+    .hero-panel h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-panel p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .value-list {
+      list-style: none;
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .value-list li {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.88rem;
+      color: #d4e5ff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .value-list i {
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    section {
+      padding: 4.1rem 0;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    /* =====================
+       ESPECIALIZACIÓN CARDS
+    ======================*/
+    .specialization-grid {
+      margin-top: 1.6rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.13), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 211, 238, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.38);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card i {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 211, 238, 0.11);
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* =====================
+       STACK TECNOLÓGICO
+    ======================*/
+    .stack-wrap {
+      margin-top: 1.6rem;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .stack-column {
+      background: rgba(16, 27, 51, 0.7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      min-height: 100%;
+    }
+
+    .stack-column h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+      color: #d9f6ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tech-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .tech-list li {
+      border: 1px solid rgba(146, 177, 235, 0.22);
+      background: rgba(8, 15, 32, 0.48);
+      border-radius: 11px;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.86rem;
+      color: #cfddf6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tech-list li i {
+      color: var(--accent);
+      font-size: 0.82rem;
+    }
+
+    .tech-list li:hover {
+      transform: translateX(3px);
+      border-color: rgba(34, 211, 238, 0.5);
+    }
+
+    /* =====================
+       FILOSOFÍA
+    ======================*/
+    .philosophy {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.2), rgba(9, 14, 27, 0.72));
+      border-top: 1px solid rgba(34, 211, 238, 0.22);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .quote {
+      background: rgba(17, 26, 47, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.2rem;
+      font-size: clamp(1.15rem, 2.1vw, 1.6rem);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .principles {
+      background: rgba(17, 26, 47, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .principles ul {
+      list-style: none;
+      margin-top: 0.5rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .principles li {
+      color: #d6e4fb;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.92rem;
+    }
+
+    .principles i {
+      color: var(--accent);
+      font-size: 0.82rem;
+    }
+
+    /* =====================
+       REDES PROFESIONALES
+    ======================*/
+    .networks {
+      text-align: center;
+    }
+
+    .socials {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(18, 29, 53, 0.78);
+      color: #dff5ff;
+      text-decoration: none;
+      display: grid;
+      place-items: center;
+      transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(34, 211, 238, 0.13);
+      border-color: rgba(34, 211, 238, 0.55);
+    }
+
+    .social-btn i {
+      font-size: 1.15rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      border-top: 1px solid rgba(190, 220, 255, 0.1);
+      padding: 1.4rem 0 2.1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-entrance {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: riseIn 0.85s ease forwards;
+    }
+
+    .hero-entrance.delay-1 { animation-delay: 0.1s; }
+    .hero-entrance.delay-2 { animation-delay: 0.2s; }
+    .hero-entrance.delay-3 { animation-delay: 0.28s; }
+
+    @keyframes riseIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specialization-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stack-wrap {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 660px) {
+      .navbar-inner {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        gap: 0.65rem;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .specialization-grid,
+      .stack-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#inicio" class="brand">Esteban <span>Montoya</span> Herrera</a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#especializacion">Especialización</a>
+        <a href="#stack">Stack</a>
+        <a href="#filosofia">Filosofía</a>
+        <a href="#redes">Redes</a>
+      </nav>
+    </div>
+  </header>
 
-<nav>
-<h2>Esteban Dev</h2>
-<ul>
-<li><a href="#about">Sobre mí</a></li>
-<li><a href="#projects">Proyectos</a></li>
-<li><a href="#contact">Contacto</a></li>
-</ul>
-</nav>
+  <main id="inicio" class="container">
+    <!-- Hero estratégico -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="badge hero-entrance">
+            <i class="fa-solid fa-code-branch"></i>
+            Software Engineer | .NET • AI • Angular • Scalable Systems
+          </div>
+          <h1 class="hero-entrance delay-1">Diseño sistemas escalables y soluciones inteligentes con .NET y Arquitectura Limpia.</h1>
+          <p class="hero-subtitle hero-entrance delay-2">
+            Convierto problemas complejos en plataformas mantenibles, seguras y preparadas para crecer.
+          </p>
+          <div class="hero-ctas hero-entrance delay-3">
+            <a class="btn btn-primary" href="#especializacion"><i class="fa-solid fa-layer-group"></i> Ver especialización</a>
+            <a class="btn btn-secondary" href="#redes"><i class="fa-solid fa-paper-plane"></i> Contactar</a>
+          </div>
+        </div>
 
-<section class="hero">
-<h1>Desarrollador Web Profesional</h1>
-<p>Creando experiencias digitales modernas</p>
-<button onclick="scrollToAbout()">Ver más</button>
-</section>
+        <aside class="hero-panel reveal" aria-label="Resumen de enfoque">
+          <h2>Visión de ingeniería orientada a producto</h2>
+          <p>
+            Diseño arquitecturas modulares enfocadas en evolución continua, integrando backend robusto, frontend sólido e inteligencia artificial aplicada.
+          </p>
+          <ul class="value-list">
+            <li><i class="fa-solid fa-check"></i> Clean Architecture + DDD en escenarios reales</li>
+            <li><i class="fa-solid fa-check"></i> APIs confiables y sistemas escalables</li>
+            <li><i class="fa-solid fa-check"></i> IA para automatizar y optimizar procesos</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
 
-<section id="about" class="about">
-<div>
-<h2>Sobre mí</h2>
-<p>
-Desarrollador apasionado por crear interfaces modernas, accesibles y escalables.
-Especializado en desarrollo web frontend con buenas prácticas de diseño y código.
-</p>
-</div>
+    <section id="especializacion">
+      <div class="section-head reveal">
+        <h2>Especialización</h2>
+        <p>
+          No vendo “horas de desarrollo”. Construyo soluciones estratégicas con criterio de arquitectura y foco en impacto de negocio.
+        </p>
+      </div>
 
-<img src="https://picsum.photos/500/500" alt="Foto de perfil">
-</section>
+      <div class="specialization-grid">
+        <article class="card reveal">
+          <i class="fa-solid fa-diagram-project"></i>
+          <h3>Arquitectura Backend</h3>
+          <p>Diseño servicios .NET con capas limpias, contratos claros y separación de responsabilidades para facilitar evolución.</p>
+        </article>
 
-<section id="projects" class="projects">
-<h2>Proyectos</h2>
+        <article class="card reveal">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h3>Desarrollo Full Stack</h3>
+          <p>Construyo experiencias consistentes entre APIs ASP.NET Core y frontends Angular, priorizando rendimiento y mantenibilidad.</p>
+        </article>
 
-<div class="grid">
+        <article class="card reveal">
+          <i class="fa-solid fa-brain"></i>
+          <h3>Integración de IA</h3>
+          <p>Incorporo capacidades de inteligencia artificial en productos digitales para automatización, análisis y optimización operativa.</p>
+        </article>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?1" alt="Proyecto 1">
-<h3>App Web</h3>
-<p>Proyecto de aplicación moderna.</p>
-</div>
+        <article class="card reveal">
+          <i class="fa-solid fa-gauge-high"></i>
+          <h3>Optimización y Escalabilidad</h3>
+          <p>Mejoro arquitectura y performance para soportar crecimiento, reducir deuda técnica y acelerar ciclos de entrega.</p>
+        </article>
+      </div>
+    </section>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?2" alt="Proyecto 2">
-<h3>Dashboard</h3>
-<p>Panel de administración.</p>
-</div>
+    <section id="stack">
+      <div class="section-head reveal">
+        <h2>Stack Tecnológico</h2>
+        <p>Stack moderno organizado por dominios técnicos para construir plataformas SaaS robustas y listas para mercado internacional.</p>
+      </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?3" alt="Proyecto 3">
-<h3>Landing Page</h3>
-<p>Página de marketing profesional.</p>
-</div>
+      <div class="stack-wrap">
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-server"></i> Backend</h3>
+          <ul class="tech-list">
+            <li>.NET <i class="fa-solid fa-chevron-right"></i></li>
+            <li>C# <i class="fa-solid fa-chevron-right"></i></li>
+            <li>ASP.NET Core <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Clean Architecture <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Domain-Driven Design <i class="fa-solid fa-chevron-right"></i></li>
+            <li>REST APIs <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
 
-</div>
-</section>
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-window-maximize"></i> Frontend</h3>
+          <ul class="tech-list">
+            <li>Angular <i class="fa-solid fa-chevron-right"></i></li>
+            <li>TypeScript <i class="fa-solid fa-chevron-right"></i></li>
+            <li>HTML5 <i class="fa-solid fa-chevron-right"></i></li>
+            <li>CSS3 <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
 
-<section id="contact">
-<h2 style="text-align:center">Contacto</h2>
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-database"></i> Base de Datos</h3>
+          <ul class="tech-list">
+            <li>SQL Server <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
 
-<form>
-<input type="text" placeholder="Nombre" required>
-<input type="email" placeholder="Email" required>
-<textarea placeholder="Mensaje" rows="5"></textarea>
-<button>Enviar Mensaje</button>
-</form>
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-cloud"></i> DevOps</h3>
+          <ul class="tech-list">
+            <li>Docker <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Git <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Arquitectura modular <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Principios SOLID <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
 
-</section>
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-robot"></i> Inteligencia Artificial</h3>
+          <ul class="tech-list">
+            <li>Integración de IA en aplicaciones <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Automatización de procesos <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Optimización inteligente <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
 
-<footer>
-<p>© 2026 Portafolio Profesional</p>
-</footer>
+  <section id="filosofia" class="philosophy">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Filosofía de Ingeniería</h2>
+        <p>Una arquitectura correcta no solo resuelve hoy: reduce fricción futura y habilita crecimiento sostenible.</p>
+      </div>
 
-<script>
+      <div class="philosophy-grid">
+        <article class="quote reveal">
+          “No escribo código para que simplemente funcione.<br />
+          Diseño soluciones que evolucionan.”
+        </article>
 
-function scrollToAbout(){
-    document.getElementById("about")
-    .scrollIntoView({behavior:"smooth"});
-}
+        <article class="principles reveal">
+          <h3>Enfoque técnico</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle"></i> Clean Architecture para independencia tecnológica.</li>
+            <li><i class="fa-solid fa-circle"></i> Separación de responsabilidades para claridad operativa.</li>
+            <li><i class="fa-solid fa-circle"></i> Escalabilidad orientada a carga y crecimiento del negocio.</li>
+            <li><i class="fa-solid fa-circle"></i> Mantenibilidad para reducir costo de cambio.</li>
+            <li><i class="fa-solid fa-circle"></i> Evolución continua del sistema con bajo acoplamiento.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
-document.querySelector("form").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    alert("Mensaje enviado ✔");
-});
+  <section id="redes" class="container networks">
+    <div class="section-head reveal">
+      <h2>Redes Profesionales</h2>
+      <p>Disponible para colaborar en productos digitales donde la ingeniería de software sea una ventaja competitiva.</p>
+    </div>
 
-</script>
+    <div class="socials reveal">
+      <a class="social-btn" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a class="social-btn" href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a class="social-btn" href="mailto:esteban@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </section>
 
+  <footer>
+    © 2026 Esteban Montoya Herrera
+  </footer>
+
+  <script>
+    // Reveal on scroll con JavaScript ligero
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
