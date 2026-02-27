@@ -3,122 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Senior | Software Architect Mindset</title>
-  <meta name="description" content="Portfolio premium de desarrollador senior enfocado en arquitectura limpia, DDD y sistemas backend escalables." />
+  <title>Esteban Montoya Herrera | Software Engineer Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio premium de Esteban Montoya Herrera, Software Engineer especializado en backend .NET, arquitectura limpia, Angular e integración de IA."
+  />
+
+  <!-- Google Font permitida -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2R5P3zQ+6I5QfVIbY5v1yM0M4G6iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Librería de iconos permitida -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2R5P3zQ+6I5QfVIbY5v1yM0M4G6iw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
     :root {
-      --bg: #080a12;
-      --surface: #10141f;
-      --surface-soft: #151b29;
-      --text: #e6e9f2;
-      --muted: #9aa5be;
-      --accent: #66c1ff;
-      --accent-2: #8c7bff;
-      --line: #242c3f;
-      --ok: #4bd7b3;
-      --max-width: 1160px;
-      --radius: 20px;
-      --shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+      --bg: #0f172a;
+      --bg-soft: #101b33;
+      --surface: rgba(19, 29, 51, 0.65);
+      --surface-strong: #121d35;
+      --text: #e8eefc;
+      --muted: #9eb0d4;
+      --line: rgba(145, 174, 235, 0.2);
+      --accent: #22d3ee;
+      --accent-strong: #38bdf8;
+      --radius: 18px;
+      --shadow-soft: 0 14px 35px rgba(8, 14, 30, 0.45);
+      --shadow-strong: 0 30px 70px rgba(0, 0, 0, 0.45);
+      --max-width: 1140px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
       background:
-        radial-gradient(circle at 10% 15%, rgba(102, 193, 255, 0.08), transparent 40%),
-        radial-gradient(circle at 85% 0%, rgba(140, 123, 255, 0.08), transparent 38%),
+        radial-gradient(800px circle at 14% -8%, rgba(34, 211, 238, 0.16), transparent 42%),
+        radial-gradient(600px circle at 82% 0%, rgba(56, 189, 248, 0.12), transparent 40%),
         var(--bg);
       color: var(--text);
-      line-height: 1.6;
       min-height: 100vh;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { width: min(var(--max-width), 92vw); margin: 0 auto; }
-
-    .mono { font-family: 'JetBrains Mono', monospace; }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      background: rgba(8, 10, 18, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    .container {
+      width: min(92vw, var(--max-width));
+      margin: 0 auto;
     }
 
-    .topbar-inner {
+    /* ========================
+       NAVBAR / GLASSMORPHISM
+    =========================*/
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.62);
+      border-bottom: 1px solid rgba(190, 220, 255, 0.12);
+    }
+
+    .navbar-inner {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
-    .brand { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.88rem; }
-
-    .brand span { color: var(--accent); }
-
-    .nav { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
+    .brand {
+      font-weight: 700;
       font-size: 0.95rem;
-      transition: color 0.2s ease;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #dff8ff;
+      text-decoration: none;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible { color: var(--text); }
+    .brand span {
+      color: var(--accent);
+    }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    /* ==============
+       HERO SECTION
+    ===============*/
     .hero {
-      padding: 8.5rem 0 5rem;
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 2rem;
+      align-items: center;
+      padding-top: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 1.5rem;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(34, 211, 238, 0.45);
       border-radius: 999px;
-      border: 1px solid rgba(102, 193, 255, 0.3);
-      background: rgba(102, 193, 255, 0.08);
-      color: #c9ebff;
-      font-size: 0.78rem;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.76rem;
+      color: #b6f3ff;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.2rem;
+      background: rgba(34, 211, 238, 0.08);
     }
 
     h1 {
-      font-size: clamp(2rem, 4.8vw, 4.15rem);
+      font-size: clamp(2rem, 4.6vw, 4rem);
       line-height: 1.08;
       letter-spacing: -0.02em;
-      max-width: 16ch;
+      max-width: 18ch;
     }
 
-    .hero p {
-      margin-top: 1.3rem;
+    .hero-subtitle {
+      margin-top: 1rem;
       color: var(--muted);
-      font-size: clamp(1rem, 1.7vw, 1.15rem);
+      font-size: clamp(1rem, 1.45vw, 1.16rem);
       max-width: 62ch;
     }
 
-    .hero-cta {
+    .hero-ctas {
       margin-top: 2rem;
       display: flex;
-      gap: 0.9rem;
       flex-wrap: wrap;
+      gap: 0.8rem;
     }
 
     .btn {
@@ -126,325 +181,582 @@
       cursor: pointer;
       text-decoration: none;
       font-weight: 600;
+      padding: 0.78rem 1.08rem;
       border-radius: 12px;
-      padding: 0.75rem 1.05rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn.primary {
-      color: #061018;
-      background: linear-gradient(130deg, var(--accent), #8fe4ff);
-      box-shadow: 0 10px 30px rgba(102, 193, 255, 0.25);
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    .btn.secondary {
-      background: var(--surface);
+    .btn-primary {
+      color: #04222a;
+      background: linear-gradient(130deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 14px 35px rgba(34, 211, 238, 0.25);
+    }
+
+    .btn-secondary {
       color: var(--text);
+      background: rgba(19, 29, 51, 0.7);
       border: 1px solid var(--line);
     }
 
-    .btn:hover { transform: translateY(-2px); }
-
-    .architect-card {
-      background: linear-gradient(160deg, rgba(140, 123, 255, 0.1), rgba(102, 193, 255, 0.07) 45%, rgba(16, 20, 31, 0.8) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
+    .hero-panel {
+      background: linear-gradient(155deg, rgba(34, 211, 238, 0.07), rgba(19, 29, 51, 0.7) 38%, rgba(18, 29, 53, 0.9) 100%);
+      border: 1px solid rgba(140, 185, 255, 0.18);
+      border-radius: 24px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow-strong);
     }
 
-    .architect-card h3 { font-size: 1rem; margin-bottom: 0.65rem; }
+    .hero-panel h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+    }
 
-    .architect-card p { color: var(--muted); font-size: 0.95rem; }
+    .hero-panel p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-    .signal {
+    .value-list {
+      list-style: none;
       margin-top: 1rem;
-      background: rgba(11, 15, 24, 0.75);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 0.9rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: #b7c9e8;
-      overflow: auto;
-    }
-
-    .metrics {
-      margin-top: 2rem;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.8rem;
+      gap: 0.5rem;
     }
 
-    .metric {
-      background: var(--surface);
+    .value-list li {
+      background: rgba(15, 23, 42, 0.65);
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 0.85rem;
+      border-radius: 12px;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.88rem;
+      color: #d4e5ff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .metric strong { font-size: 1.22rem; display: block; }
+    .value-list i {
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
 
-    .metric span { font-size: 0.82rem; color: var(--muted); }
+    section {
+      padding: 4.1rem 0;
+    }
 
-    section { padding: 3.8rem 0; }
-
-    .section-title {
-      font-size: clamp(1.4rem, 2.6vw, 2rem);
-      margin-bottom: 0.55rem;
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
     }
 
-    .section-subtitle { color: var(--muted); max-width: 68ch; }
+    .section-head p {
+      color: var(--muted);
+      max-width: 70ch;
+    }
 
-    .grid-3 {
-      margin-top: 1.7rem;
+    /* =====================
+       ESPECIALIZACIÓN CARDS
+    ======================*/
+    .specialization-grid {
+      margin-top: 1.6rem;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1rem;
     }
 
-    .panel {
+    .card {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      padding: 1.15rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
     }
 
-    .panel i { color: var(--accent); margin-bottom: 0.8rem; font-size: 1.15rem; }
-
-    .panel h3 { margin-bottom: 0.45rem; font-size: 1.05rem; }
-
-    .panel p { color: var(--muted); font-size: 0.95rem; }
-
-    .thinking {
-      margin-top: 1.8rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.13), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      z-index: -1;
     }
 
-    .thinking .panel { min-height: 100%; }
-
-    .pill-list {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      list-style: none;
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 211, 238, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.38);
     }
 
-    .pill-list li {
-      border-radius: 999px;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.82rem;
-      color: #d8e2f3;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--line);
+    .card:hover::before {
+      opacity: 1;
     }
 
-    .stack {
-      margin-top: 1.7rem;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.75rem;
-    }
-
-    .stack-item {
-      padding: 0.8rem;
+    .card i {
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 211, 238, 0.11);
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* =====================
+       STACK TECNOLÓGICO
+    ======================*/
+    .stack-wrap {
+      margin-top: 1.6rem;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .stack-column {
+      background: rgba(16, 27, 51, 0.7);
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
-      color: #dbe4f5;
-      font-size: 0.9rem;
+      border-radius: var(--radius);
+      padding: 1rem;
+      min-height: 100%;
+    }
+
+    .stack-column h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+      color: #d9f6ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tech-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .tech-list li {
+      border: 1px solid rgba(146, 177, 235, 0.22);
+      background: rgba(8, 15, 32, 0.48);
+      border-radius: 11px;
+      padding: 0.55rem 0.65rem;
+      font-size: 0.86rem;
+      color: #cfddf6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tech-list li i {
+      color: var(--accent);
+      font-size: 0.82rem;
+    }
+
+    .tech-list li:hover {
+      transform: translateX(3px);
+      border-color: rgba(34, 211, 238, 0.5);
+    }
+
+    /* =====================
+       FILOSOFÍA
+    ======================*/
+    .philosophy {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.2), rgba(9, 14, 27, 0.72));
+      border-top: 1px solid rgba(34, 211, 238, 0.22);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .quote {
+      background: rgba(17, 26, 47, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.2rem;
+      font-size: clamp(1.15rem, 2.1vw, 1.6rem);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .principles {
+      background: rgba(17, 26, 47, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .principles ul {
+      list-style: none;
+      margin-top: 0.5rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .principles li {
+      color: #d6e4fb;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.92rem;
+    }
+
+    .principles i {
+      color: var(--accent);
+      font-size: 0.82rem;
+    }
+
+    /* =====================
+       REDES PROFESIONALES
+    ======================*/
+    .networks {
       text-align: center;
     }
 
-    .contact {
-      margin-top: 1rem;
+    .socials {
+      margin-top: 1.5rem;
       display: flex;
+      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      align-items: center;
     }
 
-    .contact a { color: var(--text); text-decoration: none; }
+    .social-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(18, 29, 53, 0.78);
+      color: #dff5ff;
+      text-decoration: none;
+      display: grid;
+      place-items: center;
+      transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(34, 211, 238, 0.13);
+      border-color: rgba(34, 211, 238, 0.55);
+    }
+
+    .social-btn i {
+      font-size: 1.15rem;
+    }
 
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      margin-top: 3rem;
-      padding: 1.2rem 0 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(190, 220, 255, 0.1);
+      padding: 1.4rem 0 2.1rem;
+      text-align: center;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
     }
 
-    .reveal { opacity: 0; transform: translateY(12px); transition: 0.45s ease; }
-    .reveal.show { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; padding-top: 6.5rem; }
-      .grid-3, .thinking { grid-template-columns: 1fr; }
-      .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
     }
 
-    @media (max-width: 620px) {
-      .metrics { grid-template-columns: 1fr; }
-      .stack { grid-template-columns: 1fr; }
-      .nav { gap: 0.65rem; }
-      .nav a { font-size: 0.86rem; }
-      .hero-cta { flex-direction: column; align-items: flex-start; }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-entrance {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: riseIn 0.85s ease forwards;
+    }
+
+    .hero-entrance.delay-1 { animation-delay: 0.1s; }
+    .hero-entrance.delay-2 { animation-delay: 0.2s; }
+    .hero-entrance.delay-3 { animation-delay: 0.28s; }
+
+    @keyframes riseIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specialization-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stack-wrap {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 660px) {
+      .navbar-inner {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        gap: 0.65rem;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .specialization-grid,
+      .stack-wrap {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand mono">Senior<span>Dev</span>.build</div>
-      <nav class="nav" aria-label="Navegación principal">
-        <a href="#que-hago">Qué hago</a>
-        <a href="#como-pienso">Cómo pienso</a>
-        <a href="#como-construyo">Cómo construyo</a>
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#inicio" class="brand">Esteban <span>Montoya</span> Herrera</a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#especializacion">Especialización</a>
         <a href="#stack">Stack</a>
+        <a href="#filosofia">Filosofía</a>
+        <a href="#redes">Redes</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main id="inicio" class="container">
+    <!-- Hero estratégico -->
     <section class="hero">
-      <div>
-        <span class="eyebrow mono">Backend Engineering • Software Architecture</span>
-        <h1>Diseño software robusto, escalable y alineado con negocio.</h1>
-        <p>
-          Trabajo en la intersección entre estrategia técnica y ejecución: convierto complejidad en plataformas claras,
-          mantenibles y listas para crecer. Mi enfoque integra <strong>Clean Architecture</strong>, <strong>DDD</strong> y
-          decisiones de ingeniería guiadas por impacto real.
-        </p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#que-hago"><i class="fa-solid fa-layer-group"></i> Explorar enfoque</a>
-          <a class="btn secondary" href="#contacto"><i class="fa-solid fa-envelope"></i> Conversar</a>
-        </div>
-        <div class="metrics reveal">
-          <article class="metric"><strong>Arquitectura</strong><span>modular + orientada a dominio</span></article>
-          <article class="metric"><strong>Escalabilidad</strong><span>event-driven + cloud-native</span></article>
-          <article class="metric"><strong>Calidad</strong><span>observabilidad, testing y evolución</span></article>
-        </div>
-      </div>
-
-      <aside class="architect-card reveal" aria-label="Tarjeta de perfil técnico">
-        <h3>Software Architect Mindset</h3>
-        <p>
-          No desarrollo features aisladas. Diseño sistemas que soportan crecimiento, minimizan deuda técnica y mejoran
-          el flujo de entrega del equipo.
-        </p>
-        <div class="signal">
-[principios]
-- dominio antes que framework
-- contratos explícitos
-- desacoplar para evolucionar
-- decisiones trazables
-        </div>
-      </aside>
-    </section>
-
-    <section id="que-hago">
-      <h2 class="section-title">Qué hago</h2>
-      <p class="section-subtitle">
-        Construyo soluciones backend de misión crítica donde la arquitectura no es decoración: es ventaja competitiva.
-      </p>
-      <div class="grid-3 reveal">
-        <article class="panel">
-          <i class="fa-solid fa-sitemap"></i>
-          <h3>Arquitecturas evolutivas</h3>
-          <p>Diseño estructuras modulares que permiten incorporar nuevas capacidades sin romper lo existente.</p>
-        </article>
-        <article class="panel">
-          <i class="fa-solid fa-database"></i>
-          <h3>Diseño de datos y consistencia</h3>
-          <p>Modelo agregados y flujos de persistencia pensando en invariantes de negocio y rendimiento real.</p>
-        </article>
-        <article class="panel">
-          <i class="fa-solid fa-server"></i>
-          <h3>Plataformas backend escalables</h3>
-          <p>Construyo APIs, procesos asíncronos y pipelines resilientes para cargas crecientes y escenarios complejos.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="como-pienso">
-      <h2 class="section-title">Cómo pienso</h2>
-      <p class="section-subtitle">
-        Mi criterio técnico parte del dominio, no de la moda. Cada decisión se evalúa por su costo de cambio futuro.
-      </p>
-      <div class="thinking reveal">
-        <article class="panel">
-          <h3>Principios de diseño</h3>
-          <ul class="pill-list">
-            <li>Bounded Contexts claros</li>
-            <li>Casos de uso explícitos</li>
-            <li>Bajo acoplamiento</li>
-            <li>Alta cohesión</li>
-            <li>Contratos estables</li>
-            <li>Observabilidad desde el inicio</li>
-          </ul>
-        </article>
-        <article class="panel" id="como-construyo">
-          <h3>Cómo construyo software</h3>
-          <p>
-            Itero con ciclos cortos de validación, instrumentación y ajuste. Combino calidad técnica con foco en impacto
-            de negocio para entregar soluciones sólidas, no solo código que funciona hoy.
+      <div class="hero-grid">
+        <div>
+          <div class="badge hero-entrance">
+            <i class="fa-solid fa-code-branch"></i>
+            Software Engineer | .NET • AI • Angular • Scalable Systems
+          </div>
+          <h1 class="hero-entrance delay-1">Diseño sistemas escalables y soluciones inteligentes con .NET y Arquitectura Limpia.</h1>
+          <p class="hero-subtitle hero-entrance delay-2">
+            Convierto problemas complejos en plataformas mantenibles, seguras y preparadas para crecer.
           </p>
-          <ul class="pill-list">
-            <li>Arquitectura limpia</li>
-            <li>DDD táctico y estratégico</li>
-            <li>Testing multinivel</li>
-            <li>CI/CD disciplinado</li>
+          <div class="hero-ctas hero-entrance delay-3">
+            <a class="btn btn-primary" href="#especializacion"><i class="fa-solid fa-layer-group"></i> Ver especialización</a>
+            <a class="btn btn-secondary" href="#redes"><i class="fa-solid fa-paper-plane"></i> Contactar</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Resumen de enfoque">
+          <h2>Visión de ingeniería orientada a producto</h2>
+          <p>
+            Diseño arquitecturas modulares enfocadas en evolución continua, integrando backend robusto, frontend sólido e inteligencia artificial aplicada.
+          </p>
+          <ul class="value-list">
+            <li><i class="fa-solid fa-check"></i> Clean Architecture + DDD en escenarios reales</li>
+            <li><i class="fa-solid fa-check"></i> APIs confiables y sistemas escalables</li>
+            <li><i class="fa-solid fa-check"></i> IA para automatizar y optimizar procesos</li>
           </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="especializacion">
+      <div class="section-head reveal">
+        <h2>Especialización</h2>
+        <p>
+          No vendo “horas de desarrollo”. Construyo soluciones estratégicas con criterio de arquitectura y foco en impacto de negocio.
+        </p>
+      </div>
+
+      <div class="specialization-grid">
+        <article class="card reveal">
+          <i class="fa-solid fa-diagram-project"></i>
+          <h3>Arquitectura Backend</h3>
+          <p>Diseño servicios .NET con capas limpias, contratos claros y separación de responsabilidades para facilitar evolución.</p>
+        </article>
+
+        <article class="card reveal">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h3>Desarrollo Full Stack</h3>
+          <p>Construyo experiencias consistentes entre APIs ASP.NET Core y frontends Angular, priorizando rendimiento y mantenibilidad.</p>
+        </article>
+
+        <article class="card reveal">
+          <i class="fa-solid fa-brain"></i>
+          <h3>Integración de IA</h3>
+          <p>Incorporo capacidades de inteligencia artificial en productos digitales para automatización, análisis y optimización operativa.</p>
+        </article>
+
+        <article class="card reveal">
+          <i class="fa-solid fa-gauge-high"></i>
+          <h3>Optimización y Escalabilidad</h3>
+          <p>Mejoro arquitectura y performance para soportar crecimiento, reducir deuda técnica y acelerar ciclos de entrega.</p>
         </article>
       </div>
     </section>
 
     <section id="stack">
-      <h2 class="section-title">Tecnologías que domino</h2>
-      <p class="section-subtitle">
-        Selecciono tecnología por contexto, pero con excelencia en ecosistemas backend, integración distribuida y operaciones fiables.
-      </p>
-      <div class="stack reveal" aria-label="Tecnologías principales">
-        <div class="stack-item">Node.js / TypeScript</div>
-        <div class="stack-item">Java / Spring Boot</div>
-        <div class="stack-item">Python / FastAPI</div>
-        <div class="stack-item">Go para servicios críticos</div>
-        <div class="stack-item">PostgreSQL / Redis</div>
-        <div class="stack-item">Kafka / RabbitMQ</div>
-        <div class="stack-item">Docker / Kubernetes</div>
-        <div class="stack-item">AWS / Observability Stack</div>
+      <div class="section-head reveal">
+        <h2>Stack Tecnológico</h2>
+        <p>Stack moderno organizado por dominios técnicos para construir plataformas SaaS robustas y listas para mercado internacional.</p>
       </div>
 
-      <div id="contacto" class="contact reveal">
-        <a class="btn secondary" href="mailto:senior.dev@portfolio.io"><i class="fa-solid fa-paper-plane"></i> senior.dev@portfolio.io</a>
-        <a class="btn secondary" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a class="btn secondary" href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+      <div class="stack-wrap">
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-server"></i> Backend</h3>
+          <ul class="tech-list">
+            <li>.NET <i class="fa-solid fa-chevron-right"></i></li>
+            <li>C# <i class="fa-solid fa-chevron-right"></i></li>
+            <li>ASP.NET Core <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Clean Architecture <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Domain-Driven Design <i class="fa-solid fa-chevron-right"></i></li>
+            <li>REST APIs <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
+
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-window-maximize"></i> Frontend</h3>
+          <ul class="tech-list">
+            <li>Angular <i class="fa-solid fa-chevron-right"></i></li>
+            <li>TypeScript <i class="fa-solid fa-chevron-right"></i></li>
+            <li>HTML5 <i class="fa-solid fa-chevron-right"></i></li>
+            <li>CSS3 <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
+
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-database"></i> Base de Datos</h3>
+          <ul class="tech-list">
+            <li>SQL Server <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
+
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-cloud"></i> DevOps</h3>
+          <ul class="tech-list">
+            <li>Docker <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Git <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Arquitectura modular <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Principios SOLID <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
+
+        <article class="stack-column reveal">
+          <h3><i class="fa-solid fa-robot"></i> Inteligencia Artificial</h3>
+          <ul class="tech-list">
+            <li>Integración de IA en aplicaciones <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Automatización de procesos <i class="fa-solid fa-chevron-right"></i></li>
+            <li>Optimización inteligente <i class="fa-solid fa-chevron-right"></i></li>
+          </ul>
+        </article>
       </div>
     </section>
   </main>
 
+  <section id="filosofia" class="philosophy">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Filosofía de Ingeniería</h2>
+        <p>Una arquitectura correcta no solo resuelve hoy: reduce fricción futura y habilita crecimiento sostenible.</p>
+      </div>
+
+      <div class="philosophy-grid">
+        <article class="quote reveal">
+          “No escribo código para que simplemente funcione.<br />
+          Diseño soluciones que evolucionan.”
+        </article>
+
+        <article class="principles reveal">
+          <h3>Enfoque técnico</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle"></i> Clean Architecture para independencia tecnológica.</li>
+            <li><i class="fa-solid fa-circle"></i> Separación de responsabilidades para claridad operativa.</li>
+            <li><i class="fa-solid fa-circle"></i> Escalabilidad orientada a carga y crecimiento del negocio.</li>
+            <li><i class="fa-solid fa-circle"></i> Mantenibilidad para reducir costo de cambio.</li>
+            <li><i class="fa-solid fa-circle"></i> Evolución continua del sistema con bajo acoplamiento.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="redes" class="container networks">
+    <div class="section-head reveal">
+      <h2>Redes Profesionales</h2>
+      <p>Disponible para colaborar en productos digitales donde la ingeniería de software sea una ventaja competitiva.</p>
+    </div>
+
+    <div class="socials reveal">
+      <a class="social-btn" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a class="social-btn" href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a class="social-btn" href="mailto:esteban@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </section>
+
   <footer>
-    <div class="container mono">Built with precision mindset · Clean Architecture + DDD · 2026</div>
+    © 2026 Esteban Montoya Herrera
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
+    // Reveal on scroll con JavaScript ligero
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
