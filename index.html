@@ -1,283 +1,493 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio Profesional</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esteban Montoya Herrera | Software Engineer</title>
+  <meta name="description" content="Portfolio premium one-page de Esteban Montoya Herrera: .NET, Angular, IA, SQL Server y arquitecturas escalables." />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2R5P3zQ+6I5QfVIbY5v1yM0M4G6iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins', sans-serif;
-    background:#0f172a;
-    color:white;
-}
-
-/* NAVBAR */
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(15,23,42,.95);
-    backdrop-filter: blur(10px);
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    z-index:1000;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    margin-left:25px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-    url('https://picsum.photos/1920/1080');
-    background-size:cover;
-}
-
-.hero h1{
-    font-size:3rem;
-    animation:fadeIn 1.5s;
-}
-
-.hero p{
-    margin-top:15px;
-    font-size:1.2rem;
-}
-
-.hero button{
-    margin-top:25px;
-    padding:15px 30px;
-    border:none;
-    border-radius:30px;
-    background:#38bdf8;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.hero button:hover{
-    transform:scale(1.05);
-}
-
-/* SECTIONS */
-section{
-    padding:100px 8%;
-}
-
-/* ABOUT */
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-}
-
-.about img{
-    width:100%;
-    border-radius:20px;
-}
-
-/* PROJECTS */
-.projects h2{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card img{
-    width:100%;
-    border-radius:12px;
-}
-
-/* CONTACT */
-form{
-    max-width:600px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-}
-
-input, textarea{
-    margin-top:12px;
-    padding:15px;
-    border-radius:10px;
-    border:none;
-}
-
-form button{
-    margin-top:20px;
-    padding:15px;
-    border:none;
-    border-radius:30px;
-    background:#38bdf8;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    background:#020617;
-}
-
-/* ANIMACIONES */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .about{
-        grid-template-columns:1fr;
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #0b1220;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent: #22d3ee;
+      --accent-gradient: linear-gradient(90deg, #22d3ee, #3b82f6);
+      --line: rgba(148, 163, 184, 0.2);
+      --radius: 16px;
+      --glow: 0 12px 30px rgba(34, 211, 238, 0.15);
+      --max-width: 1120px;
     }
 
-    nav ul{
-        display:none;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-}
 
-</style>
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 15% 8%, rgba(34, 211, 238, 0.16), transparent 32%),
+        radial-gradient(circle at 85% 4%, rgba(59, 130, 246, 0.14), transparent 30%);
+      background-size: 32px 32px, 32px 32px, auto, auto;
+      opacity: .45;
+      z-index: -1;
+    }
 
+    .container { width: min(92vw, var(--max-width)); margin: 0 auto; }
+    section { padding: 120px 0; }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.04);
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(11, 18, 32, 0.85);
+      backdrop-filter: blur(12px);
+      border-color: var(--line);
+    }
+    .navbar-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .nav-avatar {
+      width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(34, 211, 238, 0.35);
+      transition: transform .3s ease;
+    }
+    .nav-avatar:hover { transform: scale(1.05); }
+    .nav-name { font-weight: 700; letter-spacing: .03em; text-transform: uppercase; font-size: .9rem; }
+    .nav-name span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 1.1rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      position: relative;
+      transition: color .25s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text-primary); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(11, 18, 32, 0.75);
+      position: relative;
+      cursor: pointer;
+    }
+    .mobile-toggle span,
+    .mobile-toggle::before,
+    .mobile-toggle::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      transform: translateX(-50%);
+      background: var(--text-primary);
+      transition: .25s ease;
+    }
+    .mobile-toggle span { top: 50%; margin-top: -1px; }
+    .mobile-toggle::before { top: 14px; }
+    .mobile-toggle::after { top: 28px; }
+    .mobile-toggle.open span { opacity: 0; }
+    .mobile-toggle.open::before { top: 21px; transform: translateX(-50%) rotate(45deg); }
+    .mobile-toggle.open::after { top: 21px; transform: translateX(-50%) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(6, 11, 21, 0.96);
+      backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: .35s ease;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu-inner { text-align: center; }
+    .mobile-menu .nav-avatar { width: 72px; height: 72px; margin-bottom: 1.2rem; }
+    .mobile-menu a {
+      display: block;
+      margin: .6rem 0;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero { min-height: 100vh; display: grid; align-items: center; }
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      max-width: 16ch;
+    }
+    .hero p {
+      margin-top: 1.2rem;
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 58ch;
+    }
+    .hero-actions { margin-top: 2rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+    .btn {
+      border-radius: 999px;
+      padding: .78rem 1.3rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .btn-outline { color: var(--text-primary); border: 1px solid var(--line); background: rgba(11, 18, 32, .55); }
+    .btn-fill { color: #032130; background: var(--accent-gradient); }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+
+    /* Shared */
+    .alt { background: var(--bg-alt); }
+    .section-title { font-size: clamp(2rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: .7rem; }
+    .section-subtitle { color: var(--text-secondary); max-width: 70ch; margin-bottom: 2rem; }
+
+    /* Especialización */
+    .spec-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--bg-alt);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      transition: .3s ease;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--glow); border-color: rgba(34, 211, 238, .4); }
+    .card i { color: var(--accent); font-size: 1.2rem; margin-bottom: .65rem; }
+    .card h3 { margin-bottom: .35rem; }
+    .card p { color: var(--text-secondary); }
+
+    /* Stack */
+    .stack-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .85rem; }
+    .stack-col {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      background: rgba(11, 18, 32, .7);
+    }
+    .stack-col h3 { font-size: .9rem; margin-bottom: .7rem; letter-spacing: .05em; color: #c8d5ea; }
+    .badges { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; }
+    .badges li {
+      border: 1px solid rgba(148, 163, 184, .24);
+      border-radius: 999px;
+      padding: .32rem .65rem;
+      background: rgba(15, 23, 42, .85);
+      color: #d6e3f8;
+      font-size: .8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .33rem;
+      transition: .2s ease;
+    }
+    .badges li i { color: var(--accent); font-size: .72rem; }
+    .badges li:hover { transform: scale(1.05); border-color: rgba(34, 211, 238, .6); }
+
+    /* Filosofía */
+    .philosophy { text-align: center; }
+    .philosophy .quote {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: clamp(1.55rem, 2.8vw, 2.1rem);
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -.015em;
+    }
+    .philosophy .line {
+      width: 180px;
+      height: 3px;
+      margin: 1.2rem auto;
+      border-radius: 99px;
+      background: var(--accent-gradient);
+    }
+    .philosophy .desc { max-width: 700px; margin: 0 auto; color: var(--text-secondary); }
+
+    /* About */
+    .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-image { display: flex; justify-content: center; }
+    .about-image img {
+      width: 100%; max-width: 320px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover;
+      border: 3px solid rgba(34, 211, 238, 0.4);
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
+      transition: transform .4s ease;
+    }
+    .about-image img:hover { transform: scale(1.03); }
+    .about-content p { color: var(--text-secondary); margin-bottom: .8rem; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .socials { margin-top: 1.3rem; display: flex; justify-content: center; gap: .85rem; }
+    .social {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1px solid var(--line); background: var(--bg-alt);
+      color: var(--text-primary); text-decoration: none;
+      display: grid; place-items: center; transition: .25s ease;
+    }
+    .social:hover { background: var(--accent); color: white; box-shadow: var(--glow); }
+
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(148, 163, 184, 0.16);
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 1.3rem 0;
+    }
+
+    /* Reveal anim */
+    .reveal { opacity: 0; transform: translateY(40px); }
+    .reveal.active { opacity: 1; transform: translateY(0); transition: all .8s ease; }
+
+    /* Breakpoints */
+    @media (max-width: 1024px) {
+      section { padding: 96px 0; }
+      .about-container { grid-template-columns: 1fr; text-align: center; }
+      .about-image { margin-bottom: 40px; }
+      .stack-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .spec-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 768px) {
+      section { padding: 84px 0; }
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 18px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .nav-avatar { width: 38px; height: 38px; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .stack-grid, .spec-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 72px 0; }
+      .navbar-inner { min-height: 68px; }
+      .social { width: 52px; height: 52px; }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <div class="nav-left">
+        <img class="nav-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='28' fill='%230f172a'/%3E%3Ccircle cx='90' cy='68' r='30' fill='url(%23g)'/%3E%3Cpath d='M42 152c7-24 25-38 48-38s41 14 48 38' fill='url(%23g)'/%3E%3C/svg%3E" alt="Esteban Montoya" />
+        <span class="nav-name">Esteban <span>Montoya</span></span>
+      </div>
 
-<nav>
-<h2>Esteban Dev</h2>
-<ul>
-<li><a href="#about">Sobre mí</a></li>
-<li><a href="#projects">Proyectos</a></li>
-<li><a href="#contact">Contacto</a></li>
-</ul>
-</nav>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#especializacion">Especialización</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#filosofia">Filosofía</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-<section class="hero">
-<h1>Desarrollador Web Profesional</h1>
-<p>Creando experiencias digitales modernas</p>
-<button onclick="scrollToAbout()">Ver más</button>
-</section>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú móvil"><span></span></button>
+    </div>
+  </header>
 
-<section id="about" class="about">
-<div>
-<h2>Sobre mí</h2>
-<p>
-Desarrollador apasionado por crear interfaces modernas, accesibles y escalables.
-Especializado en desarrollo web frontend con buenas prácticas de diseño y código.
-</p>
-</div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <div class="mobile-menu-inner">
+      <img class="nav-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='28' fill='%230f172a'/%3E%3Ccircle cx='90' cy='68' r='30' fill='url(%23g)'/%3E%3Cpath d='M42 152c7-24 25-38 48-38s41 14 48 38' fill='url(%23g)'/%3E%3C/svg%3E" alt="Esteban Montoya" />
+      <a href="#inicio">Inicio</a>
+      <a href="#especializacion">Especialización</a>
+      <a href="#stack">Stack</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </aside>
 
-<img src="https://picsum.photos/500/500" alt="Foto de perfil">
-</section>
+  <main>
+    <section id="inicio" class="hero container">
+      <div class="reveal">
+        <h1>Diseño soluciones escalables con .NET, Angular e Inteligencia Artificial</h1>
+        <p>Transformo lógica compleja en software mantenible y preparado para crecer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-outline" href="#stack" aria-label="Ir a stack">Ver Stack <i class="fa-solid fa-layer-group"></i></a>
+          <a class="btn btn-fill" href="#contact" aria-label="Ir a contacto">Contactar <i class="fa-solid fa-paper-plane"></i></a>
+        </div>
+      </div>
+    </section>
 
-<section id="projects" class="projects">
-<h2>Proyectos</h2>
+    <section id="especializacion" class="alt">
+      <div class="container">
+        <h2 class="section-title reveal">Mi Especialización</h2>
+        <p class="section-subtitle reveal">Arquitectura y ejecución con enfoque de producto, mantenibilidad y escalabilidad en escenarios reales.</p>
+        <div class="spec-grid">
+          <article class="card reveal"><i class="fa-solid fa-diagram-project"></i><h3>Arquitectura Backend</h3><p>Capas limpias, dominio explícito y contratos sólidos.</p></article>
+          <article class="card reveal"><i class="fa-solid fa-code"></i><h3>Desarrollo Full-Stack</h3><p>Integración coherente entre backend .NET y frontend Angular.</p></article>
+          <article class="card reveal"><i class="fa-solid fa-brain"></i><h3>Integración de IA</h3><p>Automatización y capacidades inteligentes dentro de aplicaciones.</p></article>
+          <article class="card reveal"><i class="fa-solid fa-server"></i><h3>Aplicaciones escalables</h3><p>Sistemas listos para crecer con estabilidad y rendimiento.</p></article>
+          <article class="card reveal"><i class="fa-solid fa-gauge-high"></i><h3>Optimización de sistemas</h3><p>Refactor y mejora continua para reducir fricción técnica.</p></article>
+        </div>
+      </div>
+    </section>
 
-<div class="grid">
+    <section id="stack">
+      <div class="container">
+        <h2 class="section-title reveal">Stack Tecnológico</h2>
+        <p class="section-subtitle reveal">Organizado por categorías para una lectura clara, visual y estratégica.</p>
+        <div class="stack-grid">
+          <article class="stack-col reveal"><h3>BACKEND</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>.NET</li><li><i class="fa-solid fa-check"></i>C#</li><li><i class="fa-solid fa-check"></i>ASP.NET Core</li><li><i class="fa-solid fa-check"></i>Clean Architecture</li><li><i class="fa-solid fa-check"></i>Domain-Driven Design</li><li><i class="fa-solid fa-check"></i>REST APIs</li></ul></article>
+          <article class="stack-col reveal"><h3>FRONTEND</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>Angular</li><li><i class="fa-solid fa-check"></i>TypeScript</li><li><i class="fa-solid fa-check"></i>HTML5</li><li><i class="fa-solid fa-check"></i>CSS3</li></ul></article>
+          <article class="stack-col reveal"><h3>DATABASE</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>SQL Server</li></ul></article>
+          <article class="stack-col reveal"><h3>DEVOPS</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>Docker</li><li><i class="fa-solid fa-check"></i>Git</li><li><i class="fa-solid fa-check"></i>Principios SOLID</li><li><i class="fa-solid fa-check"></i>Arquitectura modular</li></ul></article>
+          <article class="stack-col reveal"><h3>IA</h3><ul class="badges"><li><i class="fa-solid fa-check"></i>Integración de Inteligencia Artificial en aplicaciones</li></ul></article>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?1" alt="Proyecto 1">
-<h3>App Web</h3>
-<p>Proyecto de aplicación moderna.</p>
-</div>
+    <section id="filosofia" class="alt philosophy">
+      <div class="container reveal">
+        <h2 class="section-title">Filosofía</h2>
+        <p class="quote">“No escribo código solo para que funcione.<br />Diseño soluciones que evolucionan y perduran.”</p>
+        <div class="line"></div>
+        <p class="desc">Trabajo con mentalidad de arquitectura limpia: decisiones técnicas que soportan escalabilidad, mantenibilidad y evolución sostenida del producto.</p>
+      </div>
+    </section>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?2" alt="Proyecto 2">
-<h3>Dashboard</h3>
-<p>Panel de administración.</p>
-</div>
+    <section id="about">
+      <div class="container about-container">
+        <div class="about-image reveal">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322d3ee'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='420' height='420' rx='48' fill='%230f172a'/%3E%3Ccircle cx='210' cy='158' r='74' fill='url(%23g)'/%3E%3Cpath d='M96 348c16-60 58-94 114-94s98 34 114 94' fill='url(%23g)'/%3E%3C/svg%3E" alt="Foto Esteban Montoya" />
+        </div>
+        <article class="about-content reveal">
+          <h2 class="section-title">About</h2>
+          <p>Soy Esteban Montoya Herrera, Software Engineer enfocado en backend .NET y diseño de arquitecturas escalables para productos de alto impacto.</p>
+          <p>Mi trabajo prioriza Clean Architecture, separación de responsabilidades y decisiones que reducen el costo de cambio a largo plazo.</p>
+          <p>Combino mentalidad de producto con ejecución técnica rigurosa para construir software mantenible, seguro y listo para evolucionar.</p>
+        </article>
+      </div>
+    </section>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?3" alt="Proyecto 3">
-<h3>Landing Page</h3>
-<p>Página de marketing profesional.</p>
-</div>
+    <section id="contact" class="alt contact">
+      <div class="container reveal">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-subtitle" style="margin-inline:auto;">Disponible para proyectos donde la ingeniería de software sea una ventaja competitiva.</p>
+        <div class="socials">
+          <a class="social" href="https://www.linkedin.com/in/esteban-montoya-herrera" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social" href="https://github.com/estebanmontoya" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="social" href="mailto:esteban.montoya.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-</div>
-</section>
+  <footer>© 2026 Esteban Montoya Herrera</footer>
 
-<section id="contact">
-<h2 style="text-align:center">Contacto</h2>
+  <script>
+    // Reveal on scroll con IntersectionObserver
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-<form>
-<input type="text" placeholder="Nombre" required>
-<input type="email" placeholder="Email" required>
-<textarea placeholder="Mensaje" rows="5"></textarea>
-<button>Enviar Mensaje</button>
-</form>
+    // Navbar transparente -> sólida con scroll
+    const navbar = document.getElementById('navbar');
+    const onScrollNav = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+    onScrollNav();
+    window.addEventListener('scroll', onScrollNav, { passive: true });
 
-</section>
+    // Active link dinámico
+    const navLinks = [...document.querySelectorAll('#navLinks a')];
+    const sections = navLinks.map((l) => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    const updateActive = () => {
+      const current = window.scrollY + 130;
+      let id = '#inicio';
+      sections.forEach((section) => {
+        if (current >= section.offsetTop) id = `#${section.id}`;
+      });
+      navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === id));
+    };
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
 
-<footer>
-<p>© 2026 Portafolio Profesional</p>
-</footer>
+    // Menú móvil fullscreen
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = [...mobileMenu.querySelectorAll('a')];
 
-<script>
+    const closeMenu = () => {
+      mobileToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+      mobileToggle.setAttribute('aria-label', 'Abrir menú móvil');
+    };
 
-function scrollToAbout(){
-    document.getElementById("about")
-    .scrollIntoView({behavior:"smooth"});
-}
+    mobileToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      mobileToggle.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      mobileToggle.setAttribute('aria-label', open ? 'Cerrar menú móvil' : 'Abrir menú móvil');
+    });
 
-document.querySelector("form").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    alert("Mensaje enviado ✔");
-});
-
-</script>
-
+    mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMenu();
+    });
+  </script>
 </body>
 </html>
