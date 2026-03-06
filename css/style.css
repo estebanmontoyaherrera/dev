@@ -171,13 +171,16 @@ footer { background: var(--bg-alt); }
 
     /* Hero */
     .hero { min-height: 100vh; display: grid; align-items: center; }
-    .hero h1 {
-      font-size: 56px;
-      line-height: 1.05;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      max-width: 16ch;
-    }
+ .hero h1 {
+  font-size: clamp(2.5rem, 5.5vw, 3.6rem);   /* Tamaño fluido: no tan gigante */
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  max-width: 90%;                            /* Limita el ancho para que se envuelva */
+  overflow-wrap: break-word;                 /* Rompe palabras largas si es necesario */
+  hyphens: auto;                             /* Mejora el corte de palabras largas */
+  word-break: break-word;
+}
     .hero p {
       margin-top: 1.2rem;
       font-size: 20px;
@@ -413,3 +416,98 @@ footer { background: var(--bg-alt); }
       .navbar-inner { min-height: 68px; }
       .social { width: 52px; height: 52px; }
     }
+
+    /* Hero side-by-side with white background for image - only desktop */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+  max-width: 100%;
+}
+
+.hero-text {
+  max-width: 100%;
+}
+
+.hero-image {
+  display: none; /* Oculta en mobile */
+  max-width: 100%;
+  background: white;              /* Fondo BLANCO aquí */
+  border-radius: var(--radius);
+  padding: 1.5rem;                /* Espacio interno para que no pegue */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra suave para resaltar */
+  border: 1px solid rgba(34, 211, 238, 0.15); /* Borde sutil con tu accent */
+}
+
+.modular-monolith-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 8px;             /* Bordes suaves en la img */
+  transition: transform 0.4s ease;
+}
+
+.modular-monolith-img:hover {
+  transform: scale(1.02);
+}
+
+/* Desktop/PC: texto izquierda + imagen derecha con fondo blanco */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 4rem;
+  }
+
+  .hero-text {
+    max-width: 55%;
+  }
+
+  .hero-image {
+    display: block;
+    flex: 1;
+    text-align: right;
+  }
+
+  .modular-monolith-img {
+    max-width: 480px;
+  }
+
+ 
+}
+
+@media (min-width: 1024px) {
+  .hero h1 {
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);     /* Un poco más grande en pantallas grandes */
+    max-width: 100%;                       /* Más espacio en desktop */
+  }
+
+  .hero-text {
+    max-width: 50%;                        /* Da espacio para que el texto se organice */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem);   /* Más pequeño en móvil */
+    max-width: 100%;
+  }
+}
+/* Opcional: en tablets grandes, muestra imagen centrada abajo si quieres */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-image {
+    display: block;
+    max-width: 80%;
+    margin: 2rem auto 0;
+  }
+}
